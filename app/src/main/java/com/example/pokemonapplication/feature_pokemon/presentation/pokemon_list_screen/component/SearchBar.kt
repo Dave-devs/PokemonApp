@@ -14,7 +14,6 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 
@@ -25,10 +24,10 @@ fun SearchBar(
     onSearch: (String) -> Unit = {}
 ) {
     var text by remember { mutableStateOf("") }
-    var isHintDisplayed by remember { mutableStateOf(hint != "") }
+    val isHintDisplayed by remember { mutableStateOf(hint != "") }
 
     var focusState by remember { mutableStateOf( "") }
-    val localFocusManager = LocalFocusManager.current
+    //val localFocusManager = LocalFocusManager.current
     val focusRequester = FocusRequester()
 
     Box(modifier = modifier) {

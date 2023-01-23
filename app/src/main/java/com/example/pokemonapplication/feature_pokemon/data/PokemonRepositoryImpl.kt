@@ -1,8 +1,8 @@
 package com.example.pokemonapplication.feature_pokemon.data
 
 import com.example.pokemonapplication.feature_pokemon.data.remote.api.PokemonApi
-import com.example.pokemonapplication.feature_pokemon.data.remote.pokemons.Pokemon
-import com.example.pokemonapplication.feature_pokemon.data.remote.pokemons.PokemonList
+import com.example.pokemonapplication.feature_pokemon.data.remote.responses.Pokemon
+import com.example.pokemonapplication.feature_pokemon.data.remote.responses.PokemonList
 import com.example.pokemonapplication.feature_pokemon.domain.PokemonRepository
 import com.example.pokemonapplication.feature_pokemon.domain.util.Resource
 import dagger.hilt.android.scopes.ActivityScoped

@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -22,7 +23,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PokemonApplicationTheme {
-                // A surface container using the 'background' color from the theme
+
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
@@ -44,6 +45,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         val dominantColor = remember {
                             val color = it.arguments?.getInt("")
+                            color?.let { Color(it) } ?: Color.White
                         }
                         val pokemonName = remember {
                             it.arguments?.getString("pokemonName")

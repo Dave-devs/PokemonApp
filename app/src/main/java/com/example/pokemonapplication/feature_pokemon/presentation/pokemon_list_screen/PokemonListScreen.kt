@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.pokemonapplication.R
 import com.example.pokemonapplication.feature_pokemon.domain.model.PokemonListEntry
+import com.example.pokemonapplication.feature_pokemon.presentation.pokemon_list_screen.component.PokemonList
 import com.example.pokemonapplication.feature_pokemon.presentation.pokemon_list_screen.component.SearchBar
 
 @Composable
@@ -40,6 +41,8 @@ fun PokemonListScreen(
             ) {
 
             }
+            Spacer(modifier = Modifier.height(16.dp))
+            PokemonList( navController = navController)
         }
     }
 }

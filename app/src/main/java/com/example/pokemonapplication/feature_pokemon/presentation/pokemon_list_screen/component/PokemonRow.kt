@@ -1,9 +1,14 @@
 package com.example.pokemonapplication.feature_pokemon.presentation.pokemon_list_screen.component
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.pokemonapplication.feature_pokemon.domain.model.PokemonListEntry
 

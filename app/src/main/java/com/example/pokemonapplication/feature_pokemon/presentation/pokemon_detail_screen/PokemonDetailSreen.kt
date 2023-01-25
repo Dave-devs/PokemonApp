@@ -48,7 +48,7 @@ fun PokemonDetailScreen(
                 .align(Alignment.TopCenter)
         )
         PokemonStateWrapper(
-            pokemonInfo = pokemonDetail,
+            pokemonDetail = pokemonDetail,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(

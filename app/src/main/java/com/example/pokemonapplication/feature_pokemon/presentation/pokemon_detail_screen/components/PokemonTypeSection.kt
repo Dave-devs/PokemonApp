@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pokemonapplication.feature_pokemon.data.remote.responses.Type
+import com.example.pokemonapplication.feature_pokemon.domain.util.parseTypeToColor
 import java.util.*
 
 @Composable
@@ -33,7 +34,6 @@ fun PokemonTypeSection(types: List<Type>) {
                     .clip(CircleShape)
                     .height(35.dp)
                     .background(parseTypeToColor(type))
-
             ) {
                 Text(
                     text = type.type.name.replaceFirstChar {

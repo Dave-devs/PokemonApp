@@ -12,6 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pokemonapplication.feature_pokemon.data.remote.responses.Pokemon
+import com.example.pokemonapplication.feature_pokemon.domain.util.parseStatToAbbr
+import com.example.pokemonapplication.feature_pokemon.domain.util.parseStatToColor
 
 @Composable
 fun PokemonBaseStats(
@@ -21,7 +23,6 @@ fun PokemonBaseStats(
     val maxBaseStat = remember {
         pokemonDetail.stats.maxOf { it.base_stat }
     }
-
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {

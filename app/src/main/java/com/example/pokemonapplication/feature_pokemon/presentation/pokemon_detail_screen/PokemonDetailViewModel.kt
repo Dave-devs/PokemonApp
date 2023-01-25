@@ -7,7 +7,7 @@ import com.example.pokemonapplication.feature_pokemon.domain.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel()
+@HiltViewModel
 class PokemonDetailViewModel @Inject constructor(
     private val pokemonRepository: PokemonRepository
 ): ViewModel() {

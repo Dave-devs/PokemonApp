@@ -16,6 +16,7 @@ import com.example.pokemonapplication.feature_pokemon.presentation.pokemon_detai
 import com.example.pokemonapplication.feature_pokemon.presentation.pokemon_list_screen.PokemonListScreen
 import com.example.pokemonapplication.ui.theme.PokemonApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -44,7 +45,6 @@ class MainActivity : ComponentActivity() {
                             }
                         )
                     ) {
-                        PokemonDetailScreen( navController = navController )
                         val dominantColor = remember {
                             val color = it.arguments?.getInt("")
                             color?.let { Color(it) } ?: Color.White
@@ -52,6 +52,11 @@ class MainActivity : ComponentActivity() {
                         val pokemonName = remember {
                             it.arguments?.getString("pokemonName")
                         }
+                        PokemonDetailScreen(
+                            navController = navController,
+                            dominantColor = dominantColor,
+                            pokemonName = pokemonName?.lowercase(Locale.ROOT) ?: ""
+                        )
                     }
                 }
             }

@@ -26,7 +26,7 @@ fun SearchBar(
     var text by remember { mutableStateOf("") }
     val isHintDisplayed by remember { mutableStateOf(hint != "") }
 
-    var focusState by remember { mutableStateOf( "") }
+    var focusState by remember { mutableStateOf(false) }
     //val localFocusManager = LocalFocusManager.current
     val focusRequester = FocusRequester()
 
@@ -45,13 +45,13 @@ fun SearchBar(
                 .shadow(elevation = 5.dp, CircleShape)
                 .background(Color.White, CircleShape)
                 .padding(horizontal = 20.dp, vertical = 12.dp)
-                //.onFocusChanged { isHintDisplayed = it != FocusState.Active }
+                //.onFocusChanged { isHintDisplayed = it != FocusState.Active && text.isNotEmpty() }
                 .focusRequester(focusRequester)
                 .onFocusChanged {
                     focusState = if (it.isFocused) {
-                        isHintDisplayed.toString()
+                      !isHintDisplayed
                     } else {
-                        isHintDisplayed.toString()
+                       isHintDisplayed
                     }
                 }
         )

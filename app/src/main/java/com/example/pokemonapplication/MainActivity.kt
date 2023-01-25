@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.pokemonapplication.feature_pokemon.domain.util.Routes
+import com.example.pokemonapplication.feature_pokemon.presentation.pokemon_detail_screen.PokemonDetailScreen
 import com.example.pokemonapplication.feature_pokemon.presentation.pokemon_list_screen.PokemonListScreen
 import com.example.pokemonapplication.ui.theme.PokemonApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,6 +44,7 @@ class MainActivity : ComponentActivity() {
                             }
                         )
                     ) {
+                        PokemonDetailScreen( navController = navController )
                         val dominantColor = remember {
                             val color = it.arguments?.getInt("")
                             color?.let { Color(it) } ?: Color.White

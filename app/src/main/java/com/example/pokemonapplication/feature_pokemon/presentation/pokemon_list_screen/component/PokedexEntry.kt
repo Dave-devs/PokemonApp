@@ -4,12 +4,15 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment.Companion.Center
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.toArgb
@@ -19,13 +22,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import coil.ImageLoader
 import coil.request.ImageRequest
-import com.example.pokemonapplication.R
 import com.example.pokemonapplication.feature_pokemon.domain.model.PokemonListEntry
 import com.example.pokemonapplication.feature_pokemon.domain.util.Routes
 import com.example.pokemonapplication.feature_pokemon.presentation.pokemon_list_screen.PokemonViewModel
 import com.example.pokemonapplication.ui.theme.Roboto_Condensed
+import com.google.accompanist.coil.CoilImage
 
 @Composable
 fun PokemonEntry(
@@ -34,7 +36,7 @@ fun PokemonEntry(
     modifier: Modifier = Modifier,
     viewModel: PokemonViewModel = hiltViewModel()
 ) {
-    val imageLoader = ImageLoader(context = LocalContext.current)
+    //val imageLoader = ImageLoader(context = LocalContext.current)
     val defaultDominantColor = MaterialTheme.colors.surface
     var dominantColor by remember {
         mutableStateOf(defaultDominantColor)
@@ -62,16 +64,6 @@ fun PokemonEntry(
             }
     ) {
         Column {
-            val request = ImageRequest.Builder(LocalContext.current)
-                .data(entry.imageUrl)
-                .target {
-                    viewModel.calcDominantColor(it){ color ->
-                        dominantColor = color }
-                }
-                .placeholder(R.drawable.ic_placeholder_image)
-                .build()
-            imageLoader.enqueue(request)
-            /*
               CoilImage(
                 request = ImageRequest.Builder(LocalContext.current)
                     .data(entry.imageUrl)
@@ -92,7 +84,6 @@ fun PokemonEntry(
                     modifier = Modifier.scale(0.5f)
                 )
             }
-            * */
             Text(
                 text = entry.pokemonName,
                 fontFamily = Roboto_Condensed,
